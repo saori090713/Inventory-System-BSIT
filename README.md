@@ -1,7 +1,7 @@
 # Inventory-System-BSIT
 BSIT 2B 
 
-Bero, Christian
-Peralta, Melchor
-Tuzon, Micke
-Torres, Elizer
+Christian Bero, 
+Melchor Peralta, 
+Micke Tuzon, 
+Elizer Torres, 
