@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Units - Inventory System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-success bg-opacity-10">
+
+    <nav class="navbar navbar-dark bg-success shadow-sm">
+        <div class="container-fluid">
+            <span class="navbar-brand fw-bold">Inventory System</span>
+            <a href="login.html" class="btn btn-warning btn-sm text-dark">
+                Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 bg-success bg-opacity-25 vh-100 p-3">
+                <h6 class="text-success fw-bold">─── ⋆⋅ Menu ⋅⋆ ───</h6>
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="dashboard.html">「 Dashboard 」</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="items.html">「 Items 」</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="categories.html">「 Categories 」</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active bg-success" href="units.html">「 Units 」</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-10 p-4">
+
+                <div class="d-flex justify-content-between mb-3">
+                    <input type="text" class="form-control w-50 border-success" placeholder="Search unit...">
+                    <button class="btn btn-success">Add</button>
+                </div>
+
+                <div class="card shadow border-success">
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Unit Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Piece</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-success">Edit</button>
+                                        <button class="btn btn-sm btn-warning text-dark">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

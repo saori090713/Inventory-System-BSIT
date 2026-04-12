@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Inventory System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-success bg-opacity-10">
+
+    <nav class="navbar navbar-dark bg-success shadow-sm">
+        <div class="container-fluid">
+            <span class="navbar-brand fw-bold">Inventory System</span>
+            <a href="login.html" class="btn btn-warning btn-sm text-dark">
+                Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 bg-success bg-opacity-25 vh-100 p-3">
+                <h6 class="text-success fw-bold">─── ⋆⋅ Menu ⋅⋆ ───</h6>
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active bg-success" href="dashboard.html">「 Dashboard 」</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="items.html">「 Items 」</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="categories.html">「 Categories 」</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="units.html">「 Units 」</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-10 p-4">
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card text-center shadow border-success bg-success bg-opacity-10">
+                            <div class="card-body">
+                                <h5>Total Items</h5>
+                                <h2 class="text-success fw-bold">100</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card text-center shadow border-success bg-success bg-opacity-10">
+                            <div class="card-body">
+                                <h5>Low Quantity</h5>
+                                <h2 class="text-success fw-bold">10</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card text-center shadow border-success bg-success bg-opacity-10">
+                            <div class="card-body">
+                                <h5>Out of Stock</h5>
+                                <h2 class="text-success fw-bold">20</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow border-success">
+                    <div class="card-header bg-success text-white">
+                        Recent Activity
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Activity</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Added New Item</td>
+                                    <td>2026-02-26</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
