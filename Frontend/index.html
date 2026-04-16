@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+<body class="p-4">
+
+<div class="container">
+
+    <h1 class="mb-4 text-center">Bootstrap Showcase</h1>
+
+    <h3>Background Colors</h3>
+
+    <div class="p-3 mb-2 bg-primary text-white">bg-primary</div>
+    <div class="p-3 mb-2 bg-secondary text-white">bg-secondary</div>
+    <div class="p-3 mb-2 bg-success text-white">bg-success</div>
+    <div class="p-3 mb-2 bg-danger text-white">bg-danger</div>
+    <div class="p-3 mb-2 bg-warning text-dark">bg-warning</div>
+    <div class="p-3 mb-2 bg-info text-dark">bg-info</div>
+    <div class="p-3 mb-2 bg-light text-dark">bg-light</div>
+    <div class="p-3 mb-4 bg-dark text-white">bg-dark</div>
+
+    <h3>Text Utilities</h3>
+
+    <p class="text-primary">text-primary</p>
+    <p class="text-success fw-bold">Bold Success Text</p>
+    <p class="text-danger text-uppercase">Uppercase Danger Text</p>
+    <p class="text-muted">Muted Text</p>
+
+    <hr>
+
+    <h3>Buttons</h3>
+
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-success">Success</button>
+    <button class="btn btn-danger">Danger</button>
+    <button class="btn btn-warning">Warning</button>
+    <button class="btn btn-dark">Dark</button>
+
+    <hr>
+
+    <h3>Alerts</h3>
+
+    <div class="alert alert-primary">Primary Alert</div>
+    <div class="alert alert-success">Success Alert</div>
+    <div class="alert alert-danger">Danger Alert</div>
+
+    <hr>
+
+    <h3>Image Styles</h3>
+
+    <img src="https://via.placeholder.com/150"
+         class="img-fluid mb-3"
+         alt="Responsive Image">
+
+    <img src="https://via.placeholder.com/150"
+         class="img-thumbnail mb-3"
+         alt="Thumbnail Image">
+
+    <img src="https://via.placeholder.com/150"
+         class="rounded-circle mb-3"
+         alt="Circle Image">
+
+    <hr>
+
+    <h3>Grid System</h3>
+
+    <div class="row text-center">
+        <div class="col-md-4 bg-primary text-white p-3">col-md-4</div>
+        <div class="col-md-4 bg-success text-white p-3">col-md-4</div>
+        <div class="col-md-4 bg-danger text-white p-3">col-md-4</div>
+    </div>
+
+    <hr>
+
+    <h3>JavaScript Component</h3>
+
+    <button class="btn btn-info"
+            data-bs-toggle="collapse"
+            data-bs-target="#demoCollapse">
+        Toggle Collapse
+    </button>
+
+    <div class="collapse mt-2" id="demoCollapse">
+        <div class="card card-body">
+            This works because bootstrap.js is loaded.
+        </div>
+    </div>
+
+</div>
+
+<script src="./js/bootstrap.js"></script>
+
+</body>
+</html>
