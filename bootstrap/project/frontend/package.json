@@ -1,0 +1,11 @@
+{
+  "name": "inventory-frontend",
+  "version": "1.0.0",
+  "description": "User-facing frontend for Inventory Management System",
+  "scripts": {
+    "dev": "npx http-server -p 8080 -c-1 -o /frontend/pages/login.html"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1"
+  }
+}

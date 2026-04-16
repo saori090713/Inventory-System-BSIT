@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Connection Test</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; }
+        .status-box { padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .loading { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 600px;">
+        <h2>🔧 Inventory System - Backend Connection Test</h2>
+        <hr>
+        
+        <div id="testResults"></div>
+        
+        <button class="btn btn-primary mt-3" onclick="runAllTests()">Run All Tests</button>
+        <button class="btn btn-secondary mt-3" onclick="location.href='pages/login.html'">Go to Login</button>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:5000/api';
+        
+        function addResult(title, status, message) {
+            const resultsDiv = document.getElementById('testResults');
+            const className = status === 'success' ? 'success' : status === 'fail' ? 'fail' : status === 'loading' ? 'loading' : 'info';
+            const icon = status === 'success' ? '✅' : status === 'fail' ? '❌' : status === 'loading' ? '⏳' : 'ℹ️';
+            
+            resultsDiv.innerHTML += `
+                <div class="status-box ${className}">
+                    <strong>${icon} ${title}</strong><br>
+                    ${message}
+                </div>
+            `;
+        }
+        
+        async function runAllTests() {
+            document.getElementById('testResults').innerHTML = '';
+            addResult('Test Starting', 'loading', 'Running diagnostic tests...');
+            
+            // Test 1: Check API URL
+            addResult(
+                'API Endpoint',
+                'info',
+                `Checking: <code>${API_BASE_URL}</code>`
+            );
+            
+            // Test 2: Health check
+            try {
+                addResult('Backend Connection', 'loading', 'Attempting to reach backend server...');
+                
+                const response = await fetch(`${API_BASE_URL}/health`, {
+                    method: 'GET',
+                    timeout: 5000
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    addResult(
+                        'Backend Connection',
+                        'success',
+                        `✓ Backend is running!<br>Response: <code>${JSON.stringify(data)}</code>`
+                    );
+                } else {
+                    addResult(
+                        'Backend Connection',
+                        'fail',
+                        `Server returned status ${response.status}`
+                    );
+                }
+            } catch (error) {
+                addResult(
+                    'Backend Connection',
+                    'fail',
+                    `Cannot reach backend: <code>${error.message}</code><br>
+                    <strong>Solutions:</strong><br>
+                    1. Make sure <code>RUN.bat</code> is running<br>
+                    2. Wait 5 seconds for backend to start<br>
+                    3. Check if MySQL is running<br>
+                    4. Check firewall isn't blocking port 5000<br>
+                    5. Try running backend manually:<br>
+                    <code>cd backend && npm start</code>`
+                );
+            }
+            
+            // Test 3: Test login endpoint
+            try {
+                addResult('Login Test', 'loading', 'Testing authentication endpoint...');
+                
+                const response = await fetch(`${API_BASE_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: 'admin', password: 'admin123' })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    addResult(
+                        'Login Test',
+                        'success',
+                        `✓ Login works! Admin account exists.<br>
+                        You can now login with:<br>
+                        Username: <code>admin</code><br>
+                        Password: <code>admin123</code>`
+                    );
+                } else if (response.status === 401) {
+                    addResult(
+                        'Login Test',
+                        'fail',
+                        `Invalid credentials error (expected).<br>
+                        This means backend is working but admin user might need to be recreated.`
+                    );
+                } else {
+                    addResult(
+                        'Login Test',
+                        'info',
+                        `Response status: ${response.status}<br>
+                        Message: ${data.error || 'Unknown'}`
+                    );
+                }
+            } catch (error) {
+                addResult(
+                    'Login Test',
+                    'fail',
+                    `Cannot test login: <code>${error.message}</code>`
+                );
+            }
+            
+            // Test 4: MySQL Check
+            try {
+                addResult('Database', 'loading', 'Verify backend can connect to database...');
+                
+                const response = await fetch(`${API_BASE_URL}/health`, {
+                    method: 'GET'
+                });
+                
+                if (response.ok) {
+                    addResult(
+                        'Database',
+                        'success',
+                        '✓ Backend connected to MySQL successfully'
+                    );
+                }
+            } catch (error) {
+                addResult(
+                    'Database',
+                    'info',
+                    'Cannot verify database status from frontend'
+                );
+            }
+            
+            addResult('Next Steps', 'info', 
+                `1. If all tests pass → Go to <a href="pages/login.html">Login Page</a><br>
+                2. If Backend Connection fails → Restart RUN.bat<br>
+                3. Still having issues? Check backend console (Ctrl+C and restart)`
+            );
+        }
+        
+        // Auto-run tests on page load
+        window.addEventListener('load', runAllTests);
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Inventory System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <style>
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .stat-card.blue { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .stat-card.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .stat-card.green { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .stat-card h5 { font-size: 14px; opacity: 0.9; margin-bottom: 10px; }
+        .stat-card .stat-number { font-size: 36px; font-weight: bold; }
+        .stat-card .stat-icon { font-size: 32px; margin-bottom: 10px; }
+        .chart-container { position: relative; height: 300px; margin: 20px 0; }
+        .dashboard-section { margin-bottom: 30px; }
+    </style>
+</head>
+
+<body data-page-type="dashboard" class="bg-light">
+
+    <div id="navbar-container"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="sidebar-container"></div>
+
+            <div class="col-md-10 p-4">
+                <div id="alertContainer"></div>
+
+                <!-- Statistics Cards -->
+                <div class="dashboard-section">
+                    <div class="row mb-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-card blue">
+                                <div class="stat-icon">📦</div>
+                                <h5>Total Items</h5>
+                                <div class="stat-number" id="total-items">0</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-card orange">
+                                <div class="stat-icon">⚠️</div>
+                                <h5>Low Quantity</h5>
+                                <div class="stat-number" id="low-stock">0</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-card green">
+                                <div class="stat-icon">🚫</div>
+                                <h5>Out of Stock</h5>
+                                <div class="stat-number" id="out-of-stock">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="dashboard-section">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card shadow border-0">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">📊 Stock Status Distribution</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container">
+                                        <canvas id="stockStatusChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card shadow border-0">
+                                <div class="card-header bg-success text-white">
+                                    <h5 class="mb-0">📈 Inventory Overview</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container">
+                                        <canvas id="inventoryChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-section">
+                    <div class="card shadow border-0">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0">📋 Recent Activity</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover" id="activityTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Quantity</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4" class="text-center text-muted">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chart.js (local) -->
+    <script src="./js/chart.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/layout.js"></script>
+    <script src="./js/js/main.js"></script>
+    <script src="./js/js/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => renderLayout('dashboard'));
+    </script>
+</body>
+
+</html>

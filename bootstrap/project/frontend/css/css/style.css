@@ -1,0 +1,343 @@
+/* Custom Inventory System Styling */
+
+:root {
+    --success-color: #198754;
+    --success-light: rgba(25, 135, 84, 0.1);
+    --success-border: #198754;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(25, 135, 84, 0.05);
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background-color: rgba(25, 135, 84, 0.15);
+    min-height: 100vh;
+    padding: 20px;
+    border-right: 2px solid var(--success-border);
+    position: sticky;
+    top: 0;
+}
+
+.sidebar-title {
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.nav-link {
+    color: var(--success-color) !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+    padding: 10px 12px !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background-color: var(--success-light) !important;
+    transform: translateX(2px);
+}
+
+.nav-link.active {
+    background-color: var(--success-color) !important;
+    color: white !important;
+    box-shadow: 0 2px 8px rgba(25, 135, 84, 0.3);
+}
+
+/* ===== CARDS ===== */
+.card {
+    border: 1.5px solid var(--success-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background-color: var(--success-color) !important;
+    color: white;
+    font-weight: 600;
+    border-bottom: 2px solid var(--success-border);
+}
+
+.card-body {
+    background-color: rgba(25, 135, 84, 0.02);
+}
+
+/* ===== STAT CARDS ===== */
+.stat-card {
+    text-align: center;
+    border-left: 4px solid var(--success-color);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-left: 6px solid var(--success-color);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 2rem;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* ===== TABLES ===== */
+.table-success thead {
+    background-color: var(--success-color);
+    color: white;
+    font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--success-light);
+    transition: background-color 0.2s ease;
+}
+
+.table-bordered {
+    border-color: #ddd;
+}
+
+.table-bordered td, .table-bordered th {
+    border-color: #ddd;
+    padding: 12px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #0d6237;
+    border-color: #0d6237;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(25, 135, 84, 0.3);
+}
+
+.btn-success:active {
+    transform: translateY(0);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ===== FORMS ===== */
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+.form-control.border-success {
+    border-color: var(--success-color) !important;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+/* ===== MODALS ===== */
+.modal-header {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-body {
+    background-color: rgba(25, 135, 84, 0.01);
+}
+
+/* ===== LOGIN PAGE ===== */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.1), rgba(25, 135, 84, 0.2));
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-card .form-control {
+    margin-bottom: 12px;
+}
+
+.login-card .btn {
+    margin-top: 10px;
+}
+
+/* ===== ALERTS ===== */
+.alert {
+    border: 1px solid var(--success-border);
+    border-radius: 6px;
+    animation: slideIn 0.3s ease;
+}
+
+.alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #0d6237;
+    border-color: var(--success-color);
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #842029;
+    border-color: #dc3545;
+}
+
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #664d03;
+    border-color: #ffc107;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== SEARCH INPUT ===== */
+.search-input {
+    border-radius: 6px;
+    padding: 10px 15px;
+    border: 1p solid var(--success-border);
+}
+
+.search-input:focus {
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .nav-link {
+        display: inline-block;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.shadow-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.text-success {
+    color: var(--success-color) !important;
+}
+
+.bg-success {
+    background-color: var(--success-color) !important;
+}
+
+.border-success {
+    border-color: var(--success-color) !important;
+}
+
+/* ===== LOADING ANIMATION ===== */
+.spinner-border {
+    color: var(--success-color);
+}
+
+.loading {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ===== TRANSITIONS ===== */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}

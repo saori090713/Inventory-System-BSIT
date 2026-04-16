@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Categories - Inventory System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body data-page-type="categories" class="bg-light">
+
+    <div id="navbar-container"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div id="sidebar-container"></div>
+
+            <div class="col-md-10 p-4">
+                <div id="alertContainer"></div>
+
+                <div class="d-flex justify-content-between align-items-center mb-3 gap-2">
+                    <input type="text" id="categorySearch" class="form-control border-secondary flex-grow-1" placeholder="Search categories...">
+                    <button id="addCategoryBtn" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                        +
+                    </button>
+                </div>
+
+                <div class="card shadow border-secondary">
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover table-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 10%;">ID</th>
+                                    <th style="width: 70%;">Category Name</th>
+                                    <th style="width: 20%;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted py-4">No items</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Category Modal -->
+    <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="categoryModalLabel">Add Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="categoryForm">
+                        <div class="mb-3">
+                            <label class="form-label">Category Name <span class="text-danger">*</span></label>
+                            <input type="text" id="categoryName" class="form-control border-secondary" required>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary flex-grow-1">Add</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./js/auth.js"></script>
+    <script src="./js/layout.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/js/main.js"></script>
+    <script src="./js/js/categories.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderLayout('categories');
+            window.categoriesManager = new CategoriesManager();
+        });
+    </script>
+</body>
+
+</html>
