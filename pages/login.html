@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - Login</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/auth.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+        .auth-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .auth-card {
+            width: 400px;
+        }
+        .users-card {
+            width: 350px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .user-item {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .user-item:hover {
+            background: #f0f0f0;
+        }
+        .user-item:last-child {
+            border-bottom: none;
+        }
+        .user-username {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .user-name {
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        .user-role {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-top: 4px;
+        }
+        .user-role.admin {
+            background: #e74c3c;
+            color: white;
+        }
+        .user-role.user {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="auth-container">
+        <!-- Login/Register Card -->
+        <div class="card shadow-lg border-secondary auth-card">
+            <div class="card-header bg-light text-dark text-center">
+                <h4>Inventory System</h4>
+            </div>
+
+            <div class="card-body p-4">
+                <div id="loginForm">
+                    <form id="authForm">
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control border-secondary" id="username" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control border-secondary" id="password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+
+                    <hr class="my-3">
+
+                    <button class="btn btn-outline-primary w-100" type="button" id="btnShowRegister">Create Account</button>
+                </div>
+
+                <div id="registerForm" style="display: none;">
+                    <form id="registerAuthForm">
+                        <div class="mb-3">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control border-secondary" id="firstName" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control border-secondary" id="lastName" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control border-secondary" id="regUsername" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control border-secondary" id="regPassword" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                    </form>
+
+                    <button class="btn btn-link w-100 mt-2 text-primary" type="button" id="btnShowLogin">Back to Login</button>
+                </div>
+
+                <div id="alertBox"></div>
+            </div>
+        </div>
+
+        <!-- Registered Users List Card -->
+        <div class="card shadow-sm border-info users-card">
+            <div class="card-header bg-info text-white">
+                <h6 class="mb-0">👥 Registered Users</h6>
+            </div>
+            <div class="card-body p-2">
+                <div id="usersList" class="user-list">
+                    <div class="text-center text-muted py-3">
+                        <small>Loading users...</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/js/main.js"></script>
+    <script src="../js/js/api.js"></script>
+    <script src="../js/js/login.js"></script>
+</body>
+</html>
