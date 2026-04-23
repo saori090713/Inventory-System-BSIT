@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inventory Management</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+
+            <!-- SIDEBAR -->
+            <div class="col-md-2 bg-success text-white p-3 d-flex flex-column shadow-sm"
+                style="min-height: 100vh; max-width: 240px;">
+
+                <!-- Logo / Title -->
+                <h3 class="fw-bold mb-4">
+                    <i class="fas fa-box me-2"></i> Inventory
+                </h3>
+
+                <!-- User + Logout -->
+                <div class="mb-4">
+                    <div class="d-flex align-items-center mb-1">
+                        <span id="userName" class="fw-bold text-truncate"><i class="fas fa-user-circle me-2"></i>User</span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span id="userRole" class="badge bg-light text-success">USER</span>
+                        <button class="btn btn-warning btn-sm fw-bold" id="btnLogout" title="Logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <ul class="nav flex-column gap-2">
+
+                    <li class="nav-item">
+                        <a class="nav-link active bg-light text-success fw-bold" href="dashboard.html">
+                            <i class="fas fa-chart-line me-2"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="products.html">
+                            <i class="fas fa-boxes me-2"></i> Products
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="categories.html">
+                            <i class="fas fa-tags me-2"></i> Categories
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="units.html">
+                            <i class="fas fa-balance-scale me-2"></i> Units
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="users.html">
+                            <i class="fas fa-users me-2"></i> Users
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="col p-4" style="height: 100vh; overflow-y: auto;">
+
+                <!-- HEADER -->
+                <div class="mb-4">
+                    <h2 class="fw-bold">
+                        <i class="fas fa-chart-line text-success me-2"></i> Dashboard
+                    </h2>
+                    <p class="text-muted mb-0">Welcome to your Inventory Management System</p>
+                </div>
+
+                <!-- STATS -->
+                <div class="row">
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-boxes text-primary mb-2" style="font-size: 32px;"></i>
+                                <h6 class="text-muted">Total Products</h6>
+                                <h3 id="totalProducts">0</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-check-circle text-success mb-2" style="font-size: 32px;"></i>
+                                <h6 class="text-muted">In Stock</h6>
+                                <h3 id="inStockCount">0</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-exclamation-circle text-warning mb-2" style="font-size: 32px;"></i>
+                                <h6 class="text-muted">Low Stock</h6>
+                                <h3 id="lowStockCount">0</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-times-circle text-danger mb-2" style="font-size: 32px;"></i>
+                                <h6 class="text-muted">Out of Stock</h6>
+                                <h3 id="outOfStockCount">0</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-4">
+                    <!-- Recent Products -->
+                    <div class="col-lg-8 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h5 class="mb-0 fw-bold"><i class="fas fa-history text-success me-2"></i> Recent Products</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Category</th>
+                                                <th>Stock</th>
+                                                <th>Price</th>
+                                                <th>Added</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="recentProductsTable">
+                                            <tr>
+                                                <td colspan="6" class="text-center py-4 text-muted">Loading products...</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Low Stock Alerts -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="card shadow-sm border-warning">
+                            <div class="card-header bg-warning text-dark py-3">
+                                <h5 class="mb-0 fw-bold"><i class="fas fa-bell me-2"></i> Low Stock Alerts</h5>
+                            </div>
+                            <div class="card-body" id="lowStockContainer">
+                                <div class="text-center py-3 text-muted">
+                                    <div class="spinner-border spinner-border-sm me-2"></div> Loading alerts...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Status -->
+                <div class="mt-4 pt-3 border-top d-flex justify-content-between text-muted">
+                    <small>System Status: <span id="apiStatus" class="badge bg-secondary">Checking...</span></small>
+                    <small>Last Update: <span id="lastUpdate">Never</span></small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/js/main.js"></script>
+    <script src="../js/js/api.js"></script>
+    <script src="../js/js/dashboard.js"></script>
+
+</body>
+
+</html>
